@@ -10,7 +10,9 @@ int power (int power, int num) {
 
 int main() {
 
-  int pow, natural, sum = 0;
+  int pow = 0;
+  int natural = 0;
+  int sum = 0;
   char buffer[10000];
   printf("Enter a number: ");
   fgets(buffer, sizeof(buffer), stdin);
