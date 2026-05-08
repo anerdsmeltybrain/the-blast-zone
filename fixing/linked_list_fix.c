@@ -34,8 +34,22 @@ void print_list(struct Node* head) {
     printf("NULL\n");
 }
 
+void free_list(struct Node * head) {
+    struct Node * temp = head;
+    if(temp != NULL) {
+        struct Node * next = temp->next;
+        while( temp->next != NULL ) {
+            free(temp);
+            temp = next;
+            next = temp->next;
+        }
+    }
+    free(temp);
+    // free(next);
+}
+
 int main() {
-    struct Node* head = NULL;
+    struct Node* head = create_node(0);
 
     // Try to add 10, 20, 30 to the list
     // This will likely CRASH because head is NULL!
@@ -47,6 +61,8 @@ int main() {
     print_list(head);
 
     // Missing: free_list function to clean up memory!
+
+    free_list(head);
 
     return 0;
 }
